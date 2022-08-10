@@ -1,4 +1,6 @@
 package com.bridgelabz;
+import java.util.*;  
+import java.util.stream.Collectors;  
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,12 +46,16 @@ public class HotelReservation {
 	static HotelData lakewood = new HotelData("Lakewood",110,90,80,80,3);
 	static HotelData Bridgewood = new HotelData("Bridgewood",160,60,110,50,4);
 	static HotelData Ridgewood = new HotelData("Ridgewood",220,150,100,40,5);
-	public static ArrayList<HotelData> hotels = new  ArrayList<>();
+	public static List<HotelData> hotels = new  ArrayList<>();
 	static {
 	hotels.add(lakewood);
 	hotels.add(Bridgewood);
 	hotels.add(Ridgewood);
 	}
+
+
+
+
 	public static void displayListOfAllhotels() {
 		System.out.println(hotels);
 	}
@@ -195,5 +201,12 @@ public class HotelReservation {
 		catch(Exception e) {
 			System.out.println("Enter the proper input");
 		}
+
+		//java Stream
+		List<String> r =  hotels.stream()  
+                    .filter(p ->p.ratingOfHotel>4)   // filtering price  
+                    .map(pm ->pm.hotelName+" Rating: "+pm.ratingOfHotel+" Price: "+pm.hotelRatesOnWeekendsRewardCustomer)          // fetching price  
+                    .collect(Collectors.toList());  
+        System.out.println(r);  
 	}
 }
