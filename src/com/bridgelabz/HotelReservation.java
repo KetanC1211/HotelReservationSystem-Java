@@ -192,9 +192,20 @@ public class HotelReservation {
 		
 	public static void main(String[] args) {		
 		//displayListOfAllhotels();
-		//findCheapHotelsAsPerGivenDates();
-		//findBestRatedHotelsAsPerGivenDates();
-		//Expection Handling
+		try {
+			findCheapHotelsAsPerGivenDates();
+		}
+		catch(Exception e) {
+			System.out.println("Enter the proper input");
+		}
+
+		try {
+			findBestRatedHotelsAsPerGivenDates();
+		}
+		catch(Exception e) {
+			System.out.println("Enter the proper input");
+		}
+		
 		try {
 			findCheapBestRatedHotelsForRewardCustomerAsPerGivenDates();
 		}
