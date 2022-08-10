@@ -3,6 +3,7 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.regex.*;
 
 class InvalidDetailsException extends Exception
 {
@@ -102,6 +103,17 @@ public class HotelReservation {
 		String hName = " ";
 		for(int j=0;j<n;j++) {			
 			String day = c.getDayFromDate();
+			//Regex Pattern 
+			String dayCondition = "([FRI]{3})?([SAT]{3})?[DAY]{3}";
+			Pattern pattern = Pattern.compile(dayCondition);	
+			Matcher fmatcher = pattern.matcher(day);
+			if(fmatcher.matches()) {
+				System.out.println("Valid Input");
+			}
+			else {
+				System.out.println("Invalid Input");
+			}
+
 			System.out.println(day);
 			if(day.equals("SUNDAY")||day.equals("SATURDAY")) {
 				max = hotels.get(0).ratingOfHotel;
