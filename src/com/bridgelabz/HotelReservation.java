@@ -199,25 +199,25 @@ public class HotelReservation {
 			System.out.println("Enter the proper input");
 		}
 
-		try {
-			findBestRatedHotelsAsPerGivenDates();
-		}
-		catch(Exception e) {
-			System.out.println("Enter the proper input");
-		}
+		// try {
+		// 	findBestRatedHotelsAsPerGivenDates();
+		// }
+		// catch(Exception e) {
+		// 	System.out.println("Enter the proper input");
+		// }
 		
-		try {
-			findCheapBestRatedHotelsForRewardCustomerAsPerGivenDates();
-		}
-		catch(Exception e) {
-			System.out.println("Enter the proper input");
-		}
+		// try {
+		// 	findCheapBestRatedHotelsForRewardCustomerAsPerGivenDates();
+		// }
+		// catch(Exception e) {
+		// 	System.out.println("Enter the proper input");
+		// }
 
-		//java Stream
-		List<String> r =  hotels.stream()  
-                    .filter(p ->p.ratingOfHotel>4)   // filtering price  
-                    .map(pm ->pm.hotelName+" Rating: "+pm.ratingOfHotel+" Price: "+pm.hotelRatesOnWeekendsRewardCustomer)          // fetching price  
-                    .collect(Collectors.toList());  
-        System.out.println(r);  
+		// //java Stream
+		// List<String> r =  hotels.stream()  
+        //             .filter(p ->p.ratingOfHotel>4)   // filtering price  
+        //             .map(pm ->pm.hotelName+" Rating: "+pm.ratingOfHotel+" Price: "+pm.hotelRatesOnWeekendsRewardCustomer)          // fetching price  
+        //             .collect(Collectors.toList());  
+        // System.out.println(r);  
 	}
 }
