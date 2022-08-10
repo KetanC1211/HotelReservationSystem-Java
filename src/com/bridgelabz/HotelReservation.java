@@ -81,9 +81,8 @@ public class HotelReservation {
 	}
 		
 	public static void main(String[] args) {		
-		//displayListOfAllhotels();
-		//display();
-		findCheapHotelsAsPerGivenDates();
+		displayListOfAllhotels();
+		//findCheapHotelsAsPerGivenDates();
 	
 	}
 }
