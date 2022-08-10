@@ -53,6 +53,7 @@ public class HotelReservation {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int min=0;
+		int hotelRating=0;
 		String hName = " ";
 		for(int j=0;j<n;j++) {			
 			String day = c.getDayFromDate();
@@ -63,6 +64,7 @@ public class HotelReservation {
 					if (min>=hotels.get(i).hotelRatesOnForWeekendsRegularCustomer) {
 						min =hotels.get(i).hotelRatesOnForWeekendsRegularCustomer;
 						hName=hotels.get(i).hotelName;
+						hotelRating=hotels.get(i).ratingOfHotel;
 					}
 				}			
 			}
@@ -72,14 +74,14 @@ public class HotelReservation {
 					if (min>=hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer) {
 						min =hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer;
 						hName=hotels.get(i).hotelName;
+						hotelRating=hotels.get(i).ratingOfHotel;
 					}
 				}
 			}
 			System.out.println(hName+" total price is "+min);	
 			price += min;	
-		}
-			
-		System.out.println("total price is "+price);	
+		}			
+		System.out.println(hName+",Rating: "+ hotelRating +" total price is "+price);	
 	}
 		
 	public static void main(String[] args) {		
