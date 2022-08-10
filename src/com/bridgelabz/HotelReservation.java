@@ -46,47 +46,89 @@ public class HotelReservation {
 		System.out.println(hotels);
 	}
 
-	public static void findCheapHotelsAsPerGivenDates() {
+	// public static void findCheapHotelsAsPerGivenDates() {
+	// 	Calender c = new Calender();
+	// 	int price = 0;
+	// 	System.out.println("How many days you want to stay");
+	// 	Scanner sc = new Scanner(System.in);
+	// 	int n = sc.nextInt();
+	// 	int min=0;
+	// 	int hotelRating=0;
+	// 	String hName = " ";
+	// 	for(int j=0;j<n;j++) {			
+	// 		String day = c.getDayFromDate();
+	// 		System.out.println(day);
+	// 		if(day.equals("SUNDAY")||day.equals("SATURDAY")) {
+	// 			min = hotels.get(0).hotelRatesOnForWeekendsRegularCustomer;
+	// 			for(int i =0;i<hotels.size();i++) {
+	// 				if (min>=hotels.get(i).hotelRatesOnForWeekendsRegularCustomer) {
+	// 					min =hotels.get(i).hotelRatesOnForWeekendsRegularCustomer;
+	// 					hName=hotels.get(i).hotelName;
+	// 					hotelRating=hotels.get(i).ratingOfHotel;
+	// 				}
+	// 			}			
+	// 		}
+	// 		else {
+	// 			min = hotels.get(0).hotelRatesOnForWeekdaysRegularCustomer;
+	// 			for(int i =0;i<hotels.size();i++) {
+	// 				if (min>=hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer) {
+	// 					min =hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer;
+	// 					hName=hotels.get(i).hotelName;
+	// 					hotelRating=hotels.get(i).ratingOfHotel;
+	// 				}
+	// 			}
+	// 		}
+	// 		System.out.println(hName+" total price is "+min);	
+	// 		price += min;	
+	// 	}			
+	// 	System.out.println(hName+",Rating: "+ hotelRating +" total price is "+price);	
+	// }
+
+	public static void findBestRatedHotelsAsPerGivenDates() {
 		Calender c = new Calender();
-		int price = 0;
+		int finalPrice = 0;
+		int price=0;
 		System.out.println("How many days you want to stay");
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int min=0;
-		int hotelRating=0;
+		int max=0;
 		String hName = " ";
 		for(int j=0;j<n;j++) {			
 			String day = c.getDayFromDate();
 			System.out.println(day);
 			if(day.equals("SUNDAY")||day.equals("SATURDAY")) {
-				min = hotels.get(0).hotelRatesOnForWeekendsRegularCustomer;
+				max = hotels.get(0).ratingOfHotel;
 				for(int i =0;i<hotels.size();i++) {
-					if (min>=hotels.get(i).hotelRatesOnForWeekendsRegularCustomer) {
-						min =hotels.get(i).hotelRatesOnForWeekendsRegularCustomer;
+					if (max<=hotels.get(i).ratingOfHotel) {
+						max=hotels.get(i).ratingOfHotel;
 						hName=hotels.get(i).hotelName;
-						hotelRating=hotels.get(i).ratingOfHotel;
-					}
-				}			
-			}
-			else {
-				min = hotels.get(0).hotelRatesOnForWeekdaysRegularCustomer;
-				for(int i =0;i<hotels.size();i++) {
-					if (min>=hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer) {
-						min =hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer;
-						hName=hotels.get(i).hotelName;
-						hotelRating=hotels.get(i).ratingOfHotel;
+						price=hotels.get(i).hotelRatesOnForWeekendsRegularCustomer;
 					}
 				}
+				System.out.println(price);			
 			}
-			System.out.println(hName+" total price is "+min);	
-			price += min;	
+			else {
+				max = hotels.get(0).ratingOfHotel;
+				for(int i =0;i<hotels.size();i++) {
+					if (max<=hotels.get(i).ratingOfHotel) {
+						max=hotels.get(i).ratingOfHotel;
+						hName=hotels.get(i).hotelName;
+						price=hotels.get(i).hotelRatesOnForWeekdaysRegularCustomer;
+					}
+				}
+				System.out.println(price);	
+			}
+			finalPrice = finalPrice + price;
+			System.out.println(hName+" total price is "+finalPrice);					
 		}			
-		System.out.println(hName+",Rating: "+ hotelRating +" total price is "+price);	
+		System.out.println(hName+",Rating: "+ max +" total price is "+finalPrice);	
 	}
+
 		
 	public static void main(String[] args) {		
-		displayListOfAllhotels();
-		findCheapHotelsAsPerGivenDates();
+		//displayListOfAllhotels();
+		//findCheapHotelsAsPerGivenDates();
+		findBestRatedHotelsAsPerGivenDates();
 	
 	}
 }
